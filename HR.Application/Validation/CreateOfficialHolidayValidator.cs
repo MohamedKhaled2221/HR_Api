@@ -9,6 +9,7 @@ using HR.Application.OfficialHoliday.Dtos;
 namespace HR.Application.Validation
 {
     #region OfficialHolidays Validator
+
     public class CreateOfficialHolidayValidator : AbstractValidator<CreateOfficialHolidayDto>
     {
         public CreateOfficialHolidayValidator()
