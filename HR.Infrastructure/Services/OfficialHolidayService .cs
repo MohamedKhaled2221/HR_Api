@@ -12,6 +12,7 @@ using HR.Domain.Entities;
 namespace HR.Infrastructure.Services
 {
     #region OfficialHoliday Service
+
     public class OfficialHolidayService : IOfficialHolidayService
     {
         private readonly IUnitOfWork _uow;
