@@ -10,6 +10,7 @@ using HR.Infrastructure.Repositories;
 namespace HR.Infrastructure.Persistence
 {
     #region UnitOfWork
+
     public class UnitOfWork : IUnitOfWork
     {
         private readonly HrDbContext _context;
