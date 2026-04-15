@@ -8,6 +8,7 @@ namespace HRApi.Controllers
     [ApiController]
     [Route("api/[controller]")]
     #region GeneralSettings Controller
+
     public class GeneralSettingsController : ControllerBase
     {
         private readonly IGeneralSettingsService _service;
