@@ -13,6 +13,7 @@ namespace HR.Infrastructure.Repositories
 {
 
     #region Employee Repository
+
     public class EmployeeRepository : IEmployeeRepository
     {
         private readonly HrDbContext _context;
