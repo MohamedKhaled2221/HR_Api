@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace HR.Infrastructure.Repositories
 {
     #region OfficialHoliday Repository
+
     public class OfficialHolidayRepository : IOfficialHolidayRepository
     {
         private readonly HrDbContext _context;

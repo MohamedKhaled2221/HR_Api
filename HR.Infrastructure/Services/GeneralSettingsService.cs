@@ -12,6 +12,7 @@ using HR.Domain.Repositories;
 namespace HR.Infrastructure.Services
 {
     #region GeneralSettings Service
+
     public class GeneralSettingsService : IGeneralSettingsService
     {
         private readonly IUnitOfWork _uow;

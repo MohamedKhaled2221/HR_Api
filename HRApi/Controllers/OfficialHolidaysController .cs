@@ -8,6 +8,7 @@ namespace HRApi.Controllers
     [ApiController]
     [Route("api/[controller]")]
     #region OfficialHolidays Controller
+
     public class OfficialHolidaysController : ControllerBase
     {
         private readonly IOfficialHolidayService _service;

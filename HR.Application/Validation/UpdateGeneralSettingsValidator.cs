@@ -10,6 +10,7 @@ namespace HR.Application.Validation
 {
 
     #region GeneralSettings Validator
+
     public class UpdateGeneralSettingsValidator : AbstractValidator<UpdateGeneralSettingsDto>
     {
         private static readonly string[] ValidDays =

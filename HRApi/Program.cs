@@ -15,6 +15,7 @@ using HR.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
+#region Program 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<HrDbContext>(options =>
@@ -40,7 +41,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateEmployeeValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateEmployeeValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateGeneralSettingsValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateOfficialHolidayValidator>();
-builder.Services.AddValidatorsFromAssemblyContaining<UpdateOfficialHolidayValidator>(); 
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateOfficialHolidayValidator>();
 
 
 builder.Services.AddControllers();
@@ -58,4 +59,5 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-app.Run();
+app.Run(); 
+#endregion

@@ -18,6 +18,7 @@ namespace HR.Infrastructure.Services
 {
 
     #region Employee Service
+
     public class EmployeeService : IEmployeeService
     {
         private readonly IUnitOfWork _unitOfWork;

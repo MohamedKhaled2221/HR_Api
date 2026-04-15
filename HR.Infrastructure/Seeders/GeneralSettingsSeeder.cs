@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace HR.Infrastructure.Seeders
 {
     #region GeneralSettings Seeding
+
     public static class GeneralSettingsSeeder
     {
         public static void Seed(ModelBuilder modelBuilder)

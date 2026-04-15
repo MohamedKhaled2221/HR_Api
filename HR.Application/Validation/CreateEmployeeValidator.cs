@@ -9,6 +9,7 @@ using HR.Application.Employees.DTOs;
 namespace HR.Application.Validation
 {
     #region Employee Validator
+
     public class CreateEmployeeValidator : AbstractValidator<CreateEmployeeDto>
     {
         public CreateEmployeeValidator()

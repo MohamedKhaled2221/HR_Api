@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 namespace HR.Infrastructure.Seeders
 {
     #region OfficialHoliday Seeding 
+
+
     public static class OfficialHolidaySeeder
     {
         public static void Seed(ModelBuilder modelBuilder)

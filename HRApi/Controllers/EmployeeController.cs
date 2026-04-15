@@ -10,6 +10,7 @@ namespace HRApi.Controllers
     [ApiController]
     [Route("api/[controller]")]
     #region Employee Controller
+
     public class EmployeesController : ControllerBase
     {
         private readonly IEmployeeService _service;

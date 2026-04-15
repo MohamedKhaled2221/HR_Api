@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace HR.Infrastructure.Repositories
 {
     #region GeneralSettings Repository 
+
     public class GeneralSettingsRepository : IGeneralSettingsRepository
     {
         private readonly HrDbContext _context;
