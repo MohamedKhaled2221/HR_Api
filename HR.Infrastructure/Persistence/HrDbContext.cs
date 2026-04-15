@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace HR.Infrastructure.Persistence
 {
     #region DbContext
+
     public class HrDbContext : DbContext
     {
         public HrDbContext(DbContextOptions<HrDbContext> options) : base(options) { }
