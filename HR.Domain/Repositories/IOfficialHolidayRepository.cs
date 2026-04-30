@@ -16,5 +16,6 @@ namespace HR.Domain.Repositories
         Task<bool> DeleteAsync(int id);
         Task<bool> ExistsAsync(int id);
         Task<bool> IsDateDuplicateAsync(DateTime date, int? excludeId = null);
+        Task<bool> IsHolidayAsync(DateTime date);
     }
 }

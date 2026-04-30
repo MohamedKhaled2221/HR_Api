@@ -1,51 +1,51 @@
 ﻿using FluentValidation;
-using HR.Application.OfficialHoliday.Dtos;
+using HR.Application.Identity;
 using HR.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    #region OfficialHolidays Controller
-
-    public class OfficialHolidaysController : ControllerBase
+    [Authorize]
+    public class UserGroupsController : ControllerBase
     {
-        private readonly IOfficialHolidayService _service;
-        private readonly IValidator<CreateOfficialHolidayDto> _createValidator;
-        private readonly IValidator<UpdateOfficialHolidayDto> _updateValidator;
+        private readonly IUserGroupService _service;
+        private readonly IValidator<CreateUserGroupDto> _createValidator;
+        private readonly IValidator<UpdateUserGroupDto> _updateValidator;
 
-        public OfficialHolidaysController(
-            IOfficialHolidayService service,
-            IValidator<CreateOfficialHolidayDto> createValidator,
-            IValidator<UpdateOfficialHolidayDto> updateValidator)
+        public UserGroupsController(
+            IUserGroupService service,
+            IValidator<CreateUserGroupDto> createValidator,
+            IValidator<UpdateUserGroupDto> updateValidator)
         {
             _service = service;
             _createValidator = createValidator;
             _updateValidator = updateValidator;
         }
 
-    
+        
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] int? year = null)
+        public async Task<IActionResult> GetAll()
         {
-            var holidays = await _service.GetAllAsync(year);
-            return Ok(holidays);
+            var groups = await _service.GetAllAsync();
+            return Ok(groups);
         }
 
+       
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var holiday = await _service.GetByIdAsync(id);
-            if (holiday == null)
-                return NotFound(new { message = "الإجازة غير موجودة" });
-
-            return Ok(holiday);
+            var group = await _service.GetByIdAsync(id);
+            if (group == null)
+                return NotFound(new { message = "المجموعة غير موجودة" });
+            return Ok(group);
         }
 
-      
+        
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateOfficialHolidayDto dto)
+        public async Task<IActionResult> Create([FromBody] CreateUserGroupDto dto)
         {
             var validation = await _createValidator.ValidateAsync(dto);
             if (!validation.IsValid)
@@ -68,7 +68,7 @@ namespace HRApi.Controllers
 
         
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] UpdateOfficialHolidayDto dto)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateUserGroupDto dto)
         {
             var validation = await _updateValidator.ValidateAsync(dto);
             if (!validation.IsValid)
@@ -83,31 +83,19 @@ namespace HRApi.Controllers
                 var updated = await _service.UpdateAsync(id, dto);
                 return Ok(updated);
             }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (InvalidOperationException ex)
-            {
-                return Conflict(new { message = ex.Message });
-            }
+            catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
+            catch (InvalidOperationException ex) { return Conflict(new { message = ex.Message }); }
         }
 
-      
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             try
             {
                 await _service.DeleteAsync(id);
-                return Ok(new { message = "تم حذف الإجازة بنجاح" });
+                return Ok(new { message = "تم حذف المجموعة بنجاح" });
             }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-        } 
-        #endregion
+            catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
+        }
     }
 }
-

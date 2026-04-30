@@ -85,6 +85,14 @@ namespace HR.Infrastructure.Repositories
                             && h.IsActive
                             && (!excludeId.HasValue || h.Id != excludeId.Value));
         }
-    } 
+        
+        public async Task<bool> IsHolidayAsync(DateTime date)
+        {
+            return await _context.Officialholidays
+                .AnyAsync(h => h.Date.Date == date.Date && h.IsActive);
+        }
+
+
+    }
     #endregion
 }
