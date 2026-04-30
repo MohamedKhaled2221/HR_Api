@@ -20,7 +20,7 @@ namespace HR.Domain.Entities
 
         public string? WeeklyHolidayDay2 { get; set; }
 
-        // ── Meta 
+      
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     }
 }
