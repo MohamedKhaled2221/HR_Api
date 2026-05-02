@@ -4,8 +4,6 @@
 name: HR-API-Ci
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
     branches:
     - master
