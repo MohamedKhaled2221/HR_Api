@@ -99,7 +99,7 @@ HRMS is designed to simplify and automate the daily operations of an HR departme
 
 ### Prerequisites
 
-- [.NET SDK](https://dotnet.microsoft.com/download) (v6+)
+- [.NET SDK](https://dotnet.microsoft.com/download) (v8)
 - [Node.js](https://nodejs.org/) & Angular CLI
 - SQL Server
 - Git
